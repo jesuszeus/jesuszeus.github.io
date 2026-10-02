@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jesús Valles · Full-Stack</title>
+<meta name="description" content="Jesús José Valles Guerra — Desarrollador Full-Stack Senior: Angular, Node.js, .NET, Flutter y AWS. Disponible para trabajo remoto.">
+<meta property="og:title" content="Jesús Valles — Desarrollador Full-Stack Senior">
+<meta property="og:description" content="Angular · Node.js · .NET · Flutter · AWS. 10+ años construyendo sistemas empresariales completos.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F8; --surface:#FFFFFF; --ink:#102A43; --muted:#52667A; --line:#D3DCE6;
+  --signal:#0B8F7F; --signal-soft:#D7F0EC; --blue:#1F4E79;
+  --band1:#E3ECF4; --band2:#D6E3EE; --band3:#C8D9E7; --band4:#B9CEE0; --band5:#A9C2D8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1A26; --surface:#142434; --ink:#E4ECF4; --muted:#93A6B9; --line:#26394C;
+    --signal:#3CC9B5; --signal-soft:#123A3A; --blue:#8DB6DD;
+    --band1:#17293A; --band2:#1A2F43; --band3:#1E354C; --band4:#223B55; --band5:#26425E;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1A26; --surface:#142434; --ink:#E4ECF4; --muted:#93A6B9; --line:#26394C;
+  --signal:#3CC9B5; --signal-soft:#123A3A; --blue:#8DB6DD;
+  --band1:#17293A; --band2:#1A2F43; --band3:#1E354C; --band4:#223B55; --band5:#26425E;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"IBM Plex Sans Condensed",sans-serif;line-height:1.1;margin:0}
+h2{font-size:clamp(28px,4vw,38px);font-weight:700;margin-bottom:28px}
+section{padding:72px 0;border-top:1px solid var(--line)}
+
+/* top bar */
+.bar{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.bar .mark{font-family:"IBM Plex Sans Condensed";font-weight:700;font-size:20px;text-decoration:none;color:var(--ink)}
+.bar nav{display:flex;gap:20px;align-items:center}
+.bar nav a{color:var(--muted);text-decoration:none;font-size:15px}
+.bar nav a:hover{color:var(--ink)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;padding:6px 12px;font:600 13px "IBM Plex Sans";color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+@media (max-width:720px){.bar nav a{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:56px 0 88px}
+.hero h1{font-size:clamp(44px,7vw,84px);font-weight:700;letter-spacing:-.01em}
+.hero .role{font-size:clamp(20px,2.4vw,26px);color:var(--muted);margin:14px 0 22px;font-family:"IBM Plex Sans Condensed";font-weight:500}
+.hero p.lead{max-width:56ch;margin:0 0 28px}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:var(--ink);background:var(--signal-soft);padding:6px 14px 6px 10px;border-radius:999px;margin-bottom:26px}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 0 var(--signal);animation:ping 2.4s ease-out 3}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--signal) 60%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-1px)}
+
+/* the stack strata — the one memorable element */
+.strata{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.stratum{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;padding:16px 18px;border-top:1px solid var(--line)}
+.stratum:first-child{border-top:0}
+.stratum b{font-family:"IBM Plex Sans Condensed";font-weight:600;font-size:15px;color:var(--muted)}
+.stratum span{font-size:15px;line-height:1.45}
+.stratum:nth-child(1){background:var(--band1)}.stratum:nth-child(2){background:var(--band2)}
+.stratum:nth-child(3){background:var(--band3)}.stratum:nth-child(4){background:var(--band4)}
+.stratum:nth-child(5){background:var(--band5)}
+.strata figcaption{padding:12px 18px;font-size:14px;color:var(--muted);background:var(--surface)}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:40px;padding-top:24px}}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.job{position:relative;padding:0 0 44px 40px}
+.job:before{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--blue)}
+.job.now:before{border-color:var(--signal)}
+.job .when{font-size:15px;color:var(--muted);font-weight:500}
+.job h3{font-size:24px;font-weight:600;margin:4px 0 2px}
+.job .org{font-weight:600;color:var(--blue);margin-bottom:12px}
+.job ul{margin:0;padding-left:20px;max-width:78ch}
+.job li{margin-bottom:6px}
+.job.small{padding-bottom:26px}
+.job.small p{margin:4px 0 0;max-width:78ch}
+
+/* projects */
+.proj{display:grid;grid-template-columns:240px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj h3{font-size:22px;font-weight:600}
+.proj .ctx{font-size:14px;color:var(--muted);margin-top:6px}
+.proj p{margin:0 0 12px;max-width:68ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}
+.tags li{font-size:13px;padding:3px 10px;border-radius:6px;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+@media (max-width:720px){.proj{grid-template-columns:1fr;gap:10px}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px 40px}
+.skills h3{font-size:18px;font-weight:600;margin-bottom:6px}
+.skills p{margin:0;color:var(--muted)}
+
+/* extra */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.two h3{font-size:20px;font-weight:600;margin-bottom:10px}
+.two ul{padding-left:20px;margin:0}
+@media (max-width:720px){.two{grid-template-columns:1fr}}
+
+footer{padding:72px 0 56px;border-top:1px solid var(--line)}
+footer h2{margin-bottom:12px}
+footer p{max-width:60ch;color:var(--muted);margin:0 0 24px}
+.fine{font-size:13px;color:var(--muted);margin-top:40px}
+[data-l="en"]{display:none}
+html[lang="en"] [data-l="es"]{display:none}
+html[lang="en"] [data-l="en"]{display:revert}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <a class="mark" href="#top">JV</a>
+    <nav aria-label="Secciones">
+      <a href="#experiencia"><span data-l="es">Experiencia</span><span data-l="en">Experience</span></a>
+      <a href="#proyectos"><span data-l="es">Proyectos</span><span data-l="en">Projects</span></a>
+      <a href="#habilidades"><span data-l="es">Habilidades</span><span data-l="en">Skills</span></a>
+      <a href="#contacto"><span data-l="es">Contacto</span><span data-l="en">Contact</span></a>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-set="es" aria-pressed="true">ES</button>
+        <button type="button" data-set="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <div class="status"><i aria-hidden="true"></i>
+          <span data-l="es">Disponible para trabajo remoto</span><span data-l="en">Available for remote work</span></div>
+        <h1>Jesús Valles</h1>
+        <div class="role"><span data-l="es">Desarrollador Full-Stack Senior</span><span data-l="en">Senior Full-Stack Developer</span></div>
+        <p class="lead" data-l="es">Más de 10 años construyendo sistemas completos, desde la base de datos hasta la app en el teléfono del técnico de campo. Los últimos 3 años y medio trabajé en remoto para una empresa de EE. UU., en plataformas de monitoreo de redes móviles usadas por reguladores de telecomunicaciones en Latinoamérica.</p>
+        <p class="lead" data-l="en">10+ years building complete systems, from the database to the app in a field technician's phone. For the last 3.5 years I worked remotely for a US company on mobile-network monitoring platforms used by telecom regulators across Latin America.</p>
+        <div class="actions">
+          <a class="btn primary" href="cv/CV_Jesus_Valles_FullStack_ES.pdf" data-l="es" download>Descargar CV</a>
+          <a class="btn primary" href="cv/CV_Jesus_Valles_FullStack_EN.pdf" data-l="en" download>Download résumé</a>
+          <a class="btn" href="https://www.linkedin.com/in/jes%C3%BAs-jos%C3%A9-valles-guerra-08293739/" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/jesuszeus" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <figure class="strata" style="margin:0">
+        <div class="stratum"><b data-l="es">Móvil</b><b data-l="en">Mobile</b><span>Flutter · Dart</span></div>
+        <div class="stratum"><b>Web</b><span>Angular 10 → 19 · NgRx · signals · Tailwind</span></div>
+        <div class="stratum"><b>API</b><span>Node.js · Express · NestJS · ASP.NET (C#) · PHP</span></div>
+        <div class="stratum"><b data-l="es">Datos</b><b data-l="en">Data</b><span>MongoDB · SQL Server · MySQL · DynamoDB</span></div>
+        <div class="stratum"><b>Cloud</b><span>AWS Lambda · Cognito · SES · Firebase</span></div>
+        <figcaption data-l="es">Cada capa, en producción.</figcaption>
+        <figcaption data-l="en">Every layer, in production.</figcaption>
+      </figure>
+    </div>
+
+    <section id="experiencia">
+      <h2><span data-l="es">Experiencia</span><span data-l="en">Experience</span></h2>
+      <ol class="timeline">
+        <li class="job now">
+          <div class="when">2023 – 2026 · <span data-l="es">Remoto</span><span data-l="en">Remote</span></div>
+          <h3><span data-l="es">Desarrollador Full-Stack Senior</span><span data-l="en">Senior Full-Stack Developer</span></h3>
+          <div class="org">Nuvol Solutions LLC — McAllen, TX</div>
+          <ul data-l="es">
+            <li>Participé en el desarrollo y mantenimiento de una plataforma de monitoreo de sondas de calidad de red móvil (4G/5G), en tiempo real e histórica, usada por reguladores y operadores en varios países de Latinoamérica.</li>
+            <li>Participé en la construcción desde cero de un sistema de inspección técnica de campo: API con arquitectura hexagonal, web en Angular 19, app en Flutter y avisos en tiempo real, en un monorepo.</li>
+            <li>Participé en la automatización de los reportes regulatorios trimestrales en Excel y trabajé en Scrum con Jira.</li>
+            <li>Participé en el frontend de una plataforma de flujo de pacientes en clínicas, sobre un backend serverless en AWS.</li>
+          </ul>
+          <ul data-l="en">
+            <li>Contributed to building and maintaining a real-time and historical monitoring platform for mobile network quality probes (4G/5G), used by regulators and carriers in several Latin American countries.</li>
+            <li>Helped build a field inspection system from scratch: hexagonal-architecture API, Angular 19 web app, Flutter app and real-time notifications, in a monorepo.</li>
+            <li>Helped automate quarterly regulatory reports in Excel and worked in Scrum with Jira.</li>
+            <li>Contributed to the frontend of a clinic patient-flow platform on a serverless AWS backend.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <div class="when">2019 – 2023</div>
+          <h3><span data-l="es">Desarrollador Senior</span><span data-l="en">Senior Developer</span></h3>
+          <div class="org">Grupo RG (Stargas) — Maracaibo</div>
+          <ul data-l="es">
+            <li>Participé en el desarrollo del ERP interno del grupo, usado a diario por unas 100 personas: más de 120 endpoints en ASP.NET Web API y SQL Server.</li>
+            <li>Participé en la construcción de la aplicación web en Angular con más de 15 módulos: facturación, punto de venta, inventario, cobranza, despacho, comisiones y farmacia.</li>
+            <li>Participé en el desarrollo de la app en Flutter para la fuerza de ventas, con pedidos, cobranzas y seguimiento de vendedores.</li>
+            <li>Capacité al personal nuevo en el stack tecnológico del grupo.</li>
+          </ul>
+          <ul data-l="en">
+            <li>Contributed to the group's in-house ERP, used daily by about 100 people: 120+ ASP.NET Web API endpoints on SQL Server.</li>
+            <li>Helped build the Angular web app with 15+ modules: invoicing, point of sale, inventory, collections, dispatch, commissions and pharmacy.</li>
+            <li>Contributed to the Flutter sales-force app with orders, collections and sales-rep tracking.</li>
+            <li>Trained new staff on the group's technology stack.</li>
+          </ul>
+        </li>
+        <li class="job small">
+          <div class="when">2017 – 2019</div>
+          <h3>OSM Soft · Cable Hogar · Ricana Group</h3>
+          <p data-l="es">Desarrollo web y frontend: aplicación de ventas, sistema de operaciones para una cableoperadora (como coordinador de grupo) y un sistema de turismo.</p>
+          <p data-l="en">Web and frontend development: a sales app, an operations system for a cable operator (as team lead) and a tourism system.</p>
+        </li>
+        <li class="job">
+          <div class="when">2014 – 2017</div>
+          <h3><span data-l="es">Desarrollador</span><span data-l="en">Developer</span></h3>
+          <div class="org">Grupo Inartec, C.A.</div>
+          <ul data-l="es">
+            <li>Participé en el desarrollo de SICODS, un sistema en línea de órdenes de servicio y control de inventario.</li>
+            <li>Participé en el desarrollo de un prototipo de app de gestión médica sobre una plataforma low-code, con backend en PHP.</li>
+            <li>Entregué funcionalidades nuevas cada 2 semanas en promedio, en un equipo de 2 desarrolladores, 3 técnicos y un coordinador.</li>
+            <li>Trabajé con PHP, JavaScript y Application Craft (low-code).</li>
+          </ul>
+          <ul data-l="en">
+            <li>Contributed to SICODS, an online service-order and inventory management system.</li>
+            <li>Contributed to a medical management app prototype on a low-code platform with a PHP backend.</li>
+            <li>Shipped new features every 2 weeks on average, in a team of 2 developers, 3 technicians and a coordinator.</li>
+            <li>Worked with PHP, JavaScript and Application Craft (low-code).</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="proyectos">
+      <h2><span data-l="es">Proyectos</span><span data-l="en">Projects</span></h2>
+
+      <article class="proj">
+        <div><h3>Probe Inspector</h3><div class="ctx">Nuvol Solutions · 2025–2026</div></div>
+        <div>
+          <p data-l="es">Los técnicos de campo visitan sitios con sondas de red, toman fotos con GPS desde la app y se genera el reporte automáticamente. Los supervisores siguen cada visita en tiempo real.</p>
+          <p data-l="en">Field technicians visit network probe sites, capture GPS-tagged photos in the app and the report is generated automatically. Supervisors follow each visit in real time.</p>
+          <ul class="tags"><li>Angular 19</li><li>Flutter</li><li>Express</li><li>MongoDB</li><li>WebSockets</li><li>Arquitectura hexagonal</li><li>Monorepo</li></ul>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div><h3>Medux LATAM</h3><div class="ctx">Nuvol Solutions · 2023–2026</div></div>
+        <div>
+          <p data-l="es">Seguimiento en tiempo real y análisis histórico de sondas de medición de redes móviles en Latinoamérica, con mapas, gráficos, reportes exportables y control de usuarios por rol.</p>
+          <p data-l="en">Real-time tracking and historical analysis of mobile network measurement probes across Latin America, with maps, charts, exportable reports and role-based user management.</p>
+          <ul class="tags"><li>Angular 17</li><li>NgRx</li><li>Leaflet</li><li>Plotly</li><li>Node.js</li><li>MongoDB</li><li>Swagger</li></ul>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div><h3>Elzyra ERP</h3><div class="ctx">Grupo RG · 2019–2023</div></div>
+        <div>
+          <p data-l="es">ERP de distribución con varias empresas y monedas: ventas, POS, inventario, crédito y cobranza, despacho, comisiones y reportes. Incluye una app móvil para vendedores.</p>
+          <p data-l="en">Multi-company, multi-currency distribution ERP: sales, POS, inventory, credit and collections, dispatch, commissions and reporting. Includes a mobile app for sales reps.</p>
+          <ul class="tags"><li>ASP.NET Web API</li><li>C#</li><li>SQL Server</li><li>Angular</li><li>Flutter</li><li>Firebase</li></ul>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div><h3><span data-l="es">Proyectos freelance</span><span data-l="en">Freelance projects</span></h3><div class="ctx">Freelance</div></div>
+        <div>
+          <p data-l="es">Sistema de recibos de pago con APIs en Node.js y app en Flutter, un e-commerce de skincare y una app de peritaje para un cuerpo de bomberos.</p>
+          <p data-l="en">A payroll receipts system with Node.js APIs and a Flutter app, a skincare e-commerce site and an inspection app for a fire department.</p>
+          <ul class="tags"><li>Node.js</li><li>Express</li><li>MySQL</li><li>SQL Server</li><li>Angular 16</li><li>Firebase</li><li>Tailwind</li><li>Flutter</li></ul>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div><h3><span data-l="es">Plataformas municipales</span><span data-l="en">Municipal platforms</span></h3><div class="ctx"><span data-l="es">Alcaldía de Maracaibo · Servicio comunitario</span><span data-l="en">City of Maracaibo · Community service</span></div></div>
+        <div>
+          <p data-l="es">Sistemas web multimódulo para institutos municipales (gaita, salud, planificación, turismo): registro, historial, estadísticas y exportación a PDF y Excel.</p>
+          <p data-l="en">Multi-module web systems for municipal institutes (gaita music, health, planning, tourism): registration, history, statistics and PDF and Excel export.</p>
+          <ul class="tags"><li>PHP 8</li><li>MySQL</li><li>Bootstrap 5</li><li>Chart.js</li><li>Phinx</li></ul>
+          <p style="margin-top:12px"><a href="https://github.com/jesuszeus/project-skills" rel="noopener"><span data-l="es">Ver el skill de código abierto que acelera estos módulos</span><span data-l="en">See the open-source skill that speeds up these modules</span></a></p>
+        </div>
+      </article>
+    </section>
+
+    <section id="habilidades">
+      <h2><span data-l="es">Habilidades</span><span data-l="en">Skills</span></h2>
+      <div class="skills">
+        <div><h3>Frontend</h3><p>Angular (10–19, signals, NgRx), TypeScript, JavaScript, HTML, CSS, Tailwind, Angular Material, Chart.js, Plotly, Leaflet</p></div>
+        <div><h3>Backend</h3><p>Node.js, Express, NestJS, ASP.NET Web API (C#), Entity Framework, PHP / Laravel, Python, REST, WebSockets, Swagger, JWT</p></div>
+        <div><h3><span data-l="es">Móvil</span><span data-l="en">Mobile</span></h3><p>Flutter / Dart</p></div>
+        <div><h3><span data-l="es">Bases de datos</span><span data-l="en">Databases</span></h3><p>MongoDB, SQL Server, MySQL, PostgreSQL, DynamoDB, Firestore</p></div>
+        <div><h3>Cloud</h3><p>AWS (Lambda, API Gateway, DynamoDB, Cognito, SES, SAM), Firebase, Git, PM2</p></div>
+        <div><h3><span data-l="es">Forma de trabajo</span><span data-l="en">Ways of working</span></h3><p><span data-l="es">Arquitectura hexagonal, Clean Architecture, monorepos, Scrum / Jira</span><span data-l="en">Hexagonal Architecture, Clean Architecture, monorepos, Scrum / Jira</span></p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="two">
+        <div>
+          <h3><span data-l="es">Certificaciones</span><span data-l="en">Certifications</span></h3>
+          <ul>
+            <li><span data-l="es">Fundamentos de AWS: Cloud, Serverless y Operación</span><span data-l="en">AWS Fundamentals: Cloud, Serverless and Operations</span> — Commit Academy, 2026</li>
+            <li>Google Cloud Fundamentals: Core Infrastructure — Arki1, 2026</li>
+            <li>Introduction to Data Analytics on Google Cloud — Arki1, 2026</li>
+            <li><span data-l="es">Desarrollo con IA: Programa con Agentes y de 0 a Producción</span><span data-l="en">AI Development: Agents Program and Zero to Production</span> — BIG school, 2026</li>
+            <li><span data-l="es">Python para la inteligencia artificial</span><span data-l="en">Python for Artificial Intelligence</span> — <span data-l="es">Iniciativa CYTI</span><span data-l="en">CYTI Initiative</span>, FEC LUZ</li>
+            <li>AWS Certified Cloud Practitioner — Amazon Web Services, 2022</li>
+          </ul>
+        </div>
+        <div>
+          <h3><span data-l="es">Formación e idiomas</span><span data-l="en">Education & languages</span></h3>
+          <ul>
+            <li><span data-l="es">Computación, Universidad del Zulia (10 semestres)</span><span data-l="en">Computer Science, Universidad del Zulia (10 semesters)</span></li>
+            <li><span data-l="es">Español nativo · Inglés intermedio</span><span data-l="en">Spanish native · English intermediate</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <h2><span data-l="es">Hablemos</span><span data-l="en">Let's talk</span></h2>
+    <p data-l="es">Busco un puesto full-stack remoto. Si tu equipo necesita a alguien que entregue la funcionalidad completa, del modelo de datos a la app, escríbeme.</p>
+    <p data-l="en">I'm looking for a remote full-stack role. If your team needs someone who ships the whole feature, from data model to app, get in touch.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:jesuszeus88@gmail.com">jesuszeus88@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/jes%C3%BAs-jos%C3%A9-valles-guerra-08293739/" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/jesuszeus" rel="noopener">GitHub</a>
+    </div>
+    <div class="fine">© 2026 Jesús José Valles Guerra · Maracaibo, Venezuela</div>
+  </footer>
+</div>
+<script>
+(function(){
+  var root=document.documentElement, saved=null;
+  try{saved=localStorage.getItem('lang')}catch(e){}
+  var lang=saved||((navigator.language||'es').toLowerCase().indexOf('es')===0?'es':'en');
+  function set(l){
+    root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.set===l)});
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
+  set(lang);
+})();
+</script>
+</body>
+</html>
